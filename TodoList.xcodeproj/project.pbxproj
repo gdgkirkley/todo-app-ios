@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00533A4A25CA0F4000FA158E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00533A4925CA0F4000FA158E /* CoreImage.framework */; };
+		00BA86C425CA188D006A1C5B /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */; };
 		00FCAAA025C9FD5000801FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAA9F25C9FD5000801FE2 /* AppDelegate.swift */; };
 		00FCAAA225C9FD5000801FE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAA125C9FD5000801FE2 /* SceneDelegate.swift */; };
 		00FCAAA425C9FD5000801FE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAA325C9FD5000801FE2 /* ViewController.swift */; };
 		00FCAAA725C9FD5000801FE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FCAAA525C9FD5000801FE2 /* Main.storyboard */; };
 		00FCAAA925C9FD5100801FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00FCAAA825C9FD5100801FE2 /* Assets.xcassets */; };
 		00FCAAAC25C9FD5100801FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00FCAAAA25C9FD5100801FE2 /* LaunchScreen.storyboard */; };
+		00FCAAB525C9FD6C00801FE2 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAB425C9FD6C00801FE2 /* Todo.swift */; };
+		00FCAAB925CA050800801FE2 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAB825CA050800801FE2 /* Checkbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00533A4925CA0F4000FA158E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
 		00FCAA9C25C9FD5000801FE2 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FCAA9F25C9FD5000801FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00FCAAA125C9FD5000801FE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,8 @@
 		00FCAAA825C9FD5100801FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00FCAAAB25C9FD5100801FE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00FCAAAD25C9FD5100801FE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00FCAAB425C9FD6C00801FE2 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		00FCAAB825CA050800801FE2 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00533A4A25CA0F4000FA158E /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00533A4825CA0F4000FA158E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00533A4925CA0F4000FA158E /* CoreImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		00FCAA9325C9FD5000801FE2 = {
 			isa = PBXGroup;
 			children = (
 				00FCAA9E25C9FD5000801FE2 /* TodoList */,
 				00FCAA9D25C9FD5000801FE2 /* Products */,
+				00533A4825CA0F4000FA158E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +81,9 @@
 				00FCAAA825C9FD5100801FE2 /* Assets.xcassets */,
 				00FCAAAA25C9FD5100801FE2 /* LaunchScreen.storyboard */,
 				00FCAAAD25C9FD5100801FE2 /* Info.plist */,
+				00FCAAB425C9FD6C00801FE2 /* Todo.swift */,
+				00FCAAB825CA050800801FE2 /* Checkbox.swift */,
+				00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -137,9 +158,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00BA86C425CA188D006A1C5B /* CheckTableViewCell.swift in Sources */,
 				00FCAAA425C9FD5000801FE2 /* ViewController.swift in Sources */,
 				00FCAAA025C9FD5000801FE2 /* AppDelegate.swift in Sources */,
 				00FCAAA225C9FD5000801FE2 /* SceneDelegate.swift in Sources */,
+				00FCAAB525C9FD6C00801FE2 /* Todo.swift in Sources */,
+				00FCAAB925CA050800801FE2 /* Checkbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +311,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43NN6RXU36;
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43NN6RXU36;
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

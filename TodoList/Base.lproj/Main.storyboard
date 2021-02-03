@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2M-Pc-fLd">
+                                <rect key="frame" x="151" y="90" width="112" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86N-M5-btz">
+                                <rect key="frame" x="356" y="44" width="18" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="plus" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aw-Ok-ge4">
+                                <rect key="frame" x="40" y="44" width="21" height="22"/>
+                                <state key="normal" image="square.and.pencil" catalog="system"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bcC-YX-pOT">
+                                <rect key="frame" x="0.0" y="145" width="414" height="717"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checked cell" id="exn-Db-MaW" customClass="CheckTableViewCell" customModule="TodoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="exn-Db-MaW" id="hUf-sh-2n9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0J-AO-cBJ">
+                                                    <rect key="frame" x="20" y="11" width="344" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buc-lv-xzU" customClass="Checkbox" customModule="TodoList" customModuleProvider="target">
+                                                    <rect key="frame" x="364" y="11" width="30" height="21"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="mXz-aB-mOC"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="checked:" destination="exn-Db-MaW" eventType="valueChanged" id="YKh-da-nKD"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="L0J-AO-cBJ" secondAttribute="bottom" id="CxF-EA-WAm"/>
+                                                <constraint firstItem="buc-lv-xzU" firstAttribute="top" secondItem="hUf-sh-2n9" secondAttribute="topMargin" id="DuZ-fP-Xwy"/>
+                                                <constraint firstItem="buc-lv-xzU" firstAttribute="trailing" secondItem="hUf-sh-2n9" secondAttribute="trailingMargin" id="O82-v5-rOm"/>
+                                                <constraint firstItem="L0J-AO-cBJ" firstAttribute="top" secondItem="hUf-sh-2n9" secondAttribute="topMargin" id="hOm-Nr-mPK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="buc-lv-xzU" secondAttribute="bottom" id="mcs-uy-0ZX"/>
+                                                <constraint firstItem="buc-lv-xzU" firstAttribute="leading" secondItem="L0J-AO-cBJ" secondAttribute="trailing" id="oL9-4c-zD4"/>
+                                                <constraint firstItem="L0J-AO-cBJ" firstAttribute="leading" secondItem="hUf-sh-2n9" secondAttribute="leadingMargin" id="vHK-UW-lsU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="buc-lv-xzU" id="ZPH-QG-kJa"/>
+                                            <outlet property="label" destination="L0J-AO-cBJ" id="ZJ0-rz-ZYf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Exc-Uk-P1f"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kKM-fx-0RZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="d2M-Pc-fLd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="46" id="3A6-nk-SYZ"/>
+                            <constraint firstItem="bcC-YX-pOT" firstAttribute="top" secondItem="d2M-Pc-fLd" secondAttribute="bottom" constant="27" id="4aU-h9-JCL"/>
+                            <constraint firstItem="bcC-YX-pOT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9Nb-tv-gv2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d2M-Pc-fLd" secondAttribute="trailing" constant="151" id="Alo-Zi-nAK"/>
+                            <constraint firstItem="7aw-Ok-ge4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IyM-xH-nRr"/>
+                            <constraint firstItem="7aw-Ok-ge4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Mwd-cT-pDb"/>
+                            <constraint firstItem="bcC-YX-pOT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OQY-aa-jLh"/>
+                            <constraint firstItem="d2M-Pc-fLd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="151" id="RSw-Zf-h6m"/>
+                            <constraint firstItem="86N-M5-btz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jtv-sr-WJw"/>
+                            <constraint firstItem="bcC-YX-pOT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lMh-ld-5Pu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="86N-M5-btz" secondAttribute="trailing" constant="40" id="y7H-1G-Ztl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="bcC-YX-pOT" id="jsA-u9-UGF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
