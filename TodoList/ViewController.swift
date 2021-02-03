@@ -26,7 +26,18 @@ class ViewController: UIViewController {
         tableView.isEditing = !tableView.isEditing
     }
     
-    @IBAction func addTodo(_ sender: Any) {
+    @IBSegueAction func todoViewController(_ coder: NSCoder) -> TodoViewController? {
+        let vc = TodoViewController(coder: coder)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let todo = todos[indexPath.row]
+            vc?.todo = todo
+        }
+        
+        vc?.delegate = self
+        vc?.presentationController?.delegate = self
+        
+        return vc
     }
 }
 
@@ -42,8 +53,6 @@ extension ViewController : UITableViewDelegate {
             cell.set(checked: todo.isComplete)
             
             complete(true)
-            
-            print("complete")
         }
         
         if todos[indexPath.row].isComplete {
@@ -115,4 +124,30 @@ extension ViewController : CheckTableViewCellDelegate {
         todos[indexPath.row] = newTodo
     }
     
+}
+
+extension ViewController : TodoViewControllerDelegate {
+    func todoViewController(_ vc: TodoViewController, didSaveTodo todo: Todo) {
+        
+        // Animate the adding or updated after the TodoViewController has been dismissed
+        dismiss(animated: true) {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                // update
+                self.todos[indexPath.row] = todo
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+            } else {
+                self.todos.append(todo)
+                self.tableView.insertRows(at: [IndexPath(row: self.todos.count - 1, section: 0)], with: .automatic)
+            }
+        }
+    }
+
+}
+
+extension ViewController : UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }

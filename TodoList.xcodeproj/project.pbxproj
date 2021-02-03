@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00533A4A25CA0F4000FA158E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00533A4925CA0F4000FA158E /* CoreImage.framework */; };
 		00BA86C425CA188D006A1C5B /* CheckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */; };
+		00BA86C725CA4388006A1C5B /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA86C625CA4388006A1C5B /* TodoViewController.swift */; };
 		00FCAAA025C9FD5000801FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAA9F25C9FD5000801FE2 /* AppDelegate.swift */; };
 		00FCAAA225C9FD5000801FE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAA125C9FD5000801FE2 /* SceneDelegate.swift */; };
 		00FCAAA425C9FD5000801FE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCAAA325C9FD5000801FE2 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		00533A4925CA0F4000FA158E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckTableViewCell.swift; sourceTree = "<group>"; };
+		00BA86C625CA4388006A1C5B /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		00FCAA9C25C9FD5000801FE2 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00FCAA9F25C9FD5000801FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00FCAAA125C9FD5000801FE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				00FCAAB425C9FD6C00801FE2 /* Todo.swift */,
 				00FCAAB825CA050800801FE2 /* Checkbox.swift */,
 				00BA86C325CA188D006A1C5B /* CheckTableViewCell.swift */,
+				00BA86C625CA4388006A1C5B /* TodoViewController.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				00BA86C425CA188D006A1C5B /* CheckTableViewCell.swift in Sources */,
 				00FCAAA425C9FD5000801FE2 /* ViewController.swift in Sources */,
+				00BA86C725CA4388006A1C5B /* TodoViewController.swift in Sources */,
 				00FCAAA025C9FD5000801FE2 /* AppDelegate.swift in Sources */,
 				00FCAAA225C9FD5000801FE2 /* SceneDelegate.swift in Sources */,
 				00FCAAB525C9FD6C00801FE2 /* Todo.swift in Sources */,

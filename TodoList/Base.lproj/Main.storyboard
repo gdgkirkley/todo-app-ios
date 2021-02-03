@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="plus" catalog="system"/>
                                 <connections>
-                                    <action selector="addTodo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yet-cw-OPh"/>
+                                    <segue destination="5e2-YT-AIG" kind="show" destinationCreationSelector="todoViewController:" id="gqP-u8-dBR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aw-Ok-ge4">
@@ -78,6 +78,7 @@
                                         <connections>
                                             <outlet property="checkbox" destination="buc-lv-xzU" id="ZPH-QG-kJa"/>
                                             <outlet property="label" destination="L0J-AO-cBJ" id="ZJ0-rz-ZYf"/>
+                                            <segue destination="5e2-YT-AIG" kind="show" destinationCreationSelector="todoViewController:" id="Zrg-uW-T12"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -111,8 +112,54 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="75"/>
         </scene>
+        <!--Todo View Controller-->
+        <scene sceneID="8YB-5A-pZi">
+            <objects>
+                <viewController id="5e2-YT-AIG" customClass="TodoViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y8g-Ep-0Xc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hTD-Jj-Jyo">
+                                <rect key="frame" x="67" y="156" width="280" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="33j-pl-avW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKa-Gd-upS">
+                                <rect key="frame" x="376" y="0.0" width="18" height="22"/>
+                                <state key="normal" image="arrow.down.doc" catalog="system"/>
+                                <connections>
+                                    <action selector="save:" destination="5e2-YT-AIG" eventType="touchUpInside" id="wwp-xd-qE0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6FK-c2-y04"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hTD-Jj-Jyo" firstAttribute="centerX" secondItem="6FK-c2-y04" secondAttribute="centerX" id="Kqd-Lo-Y5t"/>
+                            <constraint firstItem="hTD-Jj-Jyo" firstAttribute="top" secondItem="6FK-c2-y04" secondAttribute="top" constant="156" id="cQo-yd-adN"/>
+                            <constraint firstItem="6FK-c2-y04" firstAttribute="trailing" secondItem="fKa-Gd-upS" secondAttribute="trailing" constant="20" id="d9X-xq-peU"/>
+                            <constraint firstItem="fKa-Gd-upS" firstAttribute="top" secondItem="6FK-c2-y04" secondAttribute="top" id="qoz-wB-JGY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZkD-yb-ccR"/>
+                    <connections>
+                        <outlet property="textField" destination="hTD-Jj-Jyo" id="i5a-Jd-gbP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Pg-4R-oRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="75"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gqP-u8-dBR"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.down.doc" catalog="system" width="115" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
