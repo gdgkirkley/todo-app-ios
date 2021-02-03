@@ -21,6 +21,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func startEditing(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
+    
+    @IBAction func addTodo(_ sender: Any) {
+    }
 }
 
 extension ViewController : UITableViewDelegate {
@@ -28,7 +35,6 @@ extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let action = UIContextualAction(style: .normal, title: "Complete") { action, view, complete in
-            
             let todo = self.todos[indexPath.row].completeToggled()
             self.todos[indexPath.row] = todo
             
@@ -40,7 +46,27 @@ extension ViewController : UITableViewDelegate {
             print("complete")
         }
         
+        if todos[indexPath.row].isComplete {
+            action.title = "Incomplete"
+            action.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
+        } else {
+            action.backgroundColor = #colorLiteral(red: 0, green: 0.5415702462, blue: 0, alpha: 1)
+        }
+        
         return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    // One of the benefits of implementing delete in this way is that
+    // it also allows the delete functionality to carry over into the
+    // tableView.isEditing state.
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    // Keep the data consistent with what the user sees
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let todo = todos.remove(at: sourceIndexPath.row)
+        todos.insert(todo, at: destinationIndexPath.row)
     }
 }
 
@@ -65,6 +91,14 @@ extension ViewController :  UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete from data and then from tableView to ensure that
+            // the data remains consistent with the tableView data source
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
 }
 
